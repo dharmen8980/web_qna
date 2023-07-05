@@ -9,7 +9,7 @@ const Home = () => {
 
   const topicSubmission = (e) => {
     e.preventDefault();
-    Axios.post("/api/getTopic", {
+    Axios.post("https://web-qna.vercel.app//api/getTopic", {
       topic: e.target.topic.value,
     }).then(() => {
       setTopicExist(true);
@@ -19,7 +19,7 @@ const Home = () => {
   const retriveAnswer = (e) => {
     setLoading(true);
     e.preventDefault();
-    Axios.post("/api/askQuestions", {
+    Axios.post("https://web-qna.vercel.app//api/askQuestions", {
       question: e.target.question.value,
     })
       .then((response) => {
