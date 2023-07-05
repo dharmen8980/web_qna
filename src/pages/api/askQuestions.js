@@ -1,5 +1,5 @@
 import { Configuration, OpenAIApi } from "openai";
-import { content } from "./qna";
+import { content } from "./getTopic";
 
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
