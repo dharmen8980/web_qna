@@ -9,7 +9,7 @@ const Home = () => {
 
   const topicSubmission = (e) => {
     e.preventDefault();
-    Axios.post("http://localhost:3000/api/getTopic", {
+    Axios.post("/api/getTopic", {
       topic: e.target.topic.value,
     }).then(() => {
       setTopicExist(true);
@@ -19,7 +19,7 @@ const Home = () => {
   const retriveAnswer = (e) => {
     setLoading(true);
     e.preventDefault();
-    Axios.post("http://localhost:3000/api/askQuestions", {
+    Axios.post("/api/askQuestions", {
       question: e.target.question.value,
     })
       .then((response) => {
