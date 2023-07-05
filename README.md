@@ -1,38 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Topic Search and Question Answering Program
 
-## Getting Started
+This program accepts a topic as a string input from the user, searches the internet for information about it, and answers any questions regarding the topic.
 
-First, run the development server:
+## Dependencies
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+The following packages are used in this program:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- `openai`: Provides access to OpenAI GPT-3 models for natural language processing.
+- `google-it`: Enables searching the web and collecting URLs of search results.
+- `wiki-js`: Allows searching and extracting content from Wikipedia.
+- `cheerio`: Parses and traverses HTML content.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Program Workflow
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+1. The program first searches for the given topic in Wikipedia and extracts the whole content or summary, as required.
+2. If the content is not found on Wikipedia, it searches the web and collects the URLs of the search results.
+3. It then visits each URL and extracts the content from it.
+4. The extracted content is then fed to the OpenAI GPT-3.5-turbo model as a system message.
+5. The chat model reads the content and is able to provide any possible questions related to that topic.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Usage
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Install the required packages by running `npm install` or `yarn install`.
+2. Make sure you have valid API credentials for OpenAI.
+3. Replace the API/route in the program with your own API route if you want to run this program on your machine.
+   - The current API route used in the program is `https://web-qna.vercel.app/api/[askQuestions/getTopic]`.
+   - You can replace it with your own API route to handle the topic and question processing logic.
+4. Run the program and provide the topic you want to search for.
+5. The program will display the extracted content and allow you to ask questions related to the topic.
 
-## Learn More
+## Website
 
-To learn more about Next.js, take a look at the following resources:
+The program is also hosted on Vercel and can be accessed through the following website: [https://web-qna.vercel.app/]
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Feel free to explore and modify the program to suit your specific needs.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
