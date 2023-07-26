@@ -12,7 +12,7 @@ const Home = () => {
   const topicSubmission = (e) => {
     setSearchingTopic(true);
     e.preventDefault();
-    Axios.post("https://web-qna.vercel.app/api/getTopic", {
+    Axios.post("/api/getTopic", {
       topic: e.target.topic.value,
     }).then(() => {
       setSearchingTopic(false);
@@ -24,7 +24,7 @@ const Home = () => {
   const retriveAnswer = (e) => {
     setLoading(true);
     e.preventDefault();
-    Axios.post("https://web-qna.vercel.app/api/askQuestions", {
+    Axios.post("/api/askQuestions", {
       question: e.target.question.value,
     })
       .then((response) => {
